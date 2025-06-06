@@ -1,0 +1,16 @@
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\bin\Debug\net8.0\commercepricing.infrastructure.deps.json
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\bin\Debug\net8.0\commercepricing.infrastructure.dll
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\bin\Debug\net8.0\commercepricing.infrastructure.pdb
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\bin\Debug\net8.0\commercepricing.domain.dll
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\bin\Debug\net8.0\commercepricing.domain.pdb
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.csproj.AssemblyReference.cache
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.AssemblyInfoInputs.cache
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.AssemblyInfo.cs
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.sourcelink.json
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commerce.D1E826FA.Up2Date
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.dll
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\refint\commercepricing.infrastructure.dll
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\commercepricing.infrastructure.pdb
+C:\Users\119302\Documents\commerce-pricing-service\src\commercepricing.infrastructure\obj\Debug\net8.0\ref\commercepricing.infrastructure.dll

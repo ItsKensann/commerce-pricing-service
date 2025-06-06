@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "commercepricingchangefeed/1.0.0": {
+        "dependencies": {
+          "commercepricing.domain": "1.0.0",
+          "commercepricing.infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "commercepricingchangefeed.dll": {}
+        }
+      },
+      "commercepricing.domain/1.0.0": {
+        "runtime": {
+          "commercepricing.domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "commercepricing.infrastructure/1.0.0": {
+        "dependencies": {
+          "commercepricing.domain": "1.0.0"
+        },
+        "runtime": {
+          "commercepricing.infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "commercepricingchangefeed/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "commercepricing.domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "commercepricing.infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
