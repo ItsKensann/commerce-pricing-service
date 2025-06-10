@@ -3,16 +3,10 @@ retcommercepricing-cosmosdb:
   deploymentParams:
     DBName: 'retcommercepricing'
     DBTier: 'Standard'
-    EnableMultipleWriteLocations: 
-      Enabled: false 
-      Locations:
-        - LocationName: 'westus3' 
-          IsZoneRedundant: false
-          FailoverPriority: 0 
     Databases: 
       - Name: retcommercepricing
         RUPolicy: Autoscale
-        SharedRU: 4000
+        SharedRU: 15000
         Collections:
             # Transactions
           - Name: commercepricingtransactions

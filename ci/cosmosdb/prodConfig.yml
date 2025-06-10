@@ -3,16 +3,10 @@ retcommercepricing-cosmosdb:
   deploymentParams:
     DBName: 'retcommercepricing'
     DBTier: 'Standard'
-    EnableMultipleWriteLocations: 
-      Enabled: false 
-      Locations:
-        - LocationName: 'westus3' 
-          IsZoneRedundant: false
-          FailoverPriority: 0 
     Databases: 
       - Name: retcommercepricing
         RUPolicy: Autoscale
-        SharedRU: 4000
+        SharedRU: 15000
         Collections:
             # Transactions
           - Name: commercepricingtransactions
@@ -20,17 +14,17 @@ retcommercepricing-cosmosdb:
             ExcludedPaths:
               - '/*'
             PartitionKey: '/payload/id' 
-            DefaultTtl: 1209600 
+            DefaultTtl: 47304000 
             # Master
           - Name: commercepricingmaster
             IndexingMode: Consistent # Consistent (synchronous, immediate consistency)
             ExcludedPaths:
               - '/*'
             PartitionKey: '/id'
-            DefaultTtl: 1209600 
+            DefaultTtl: 47304000 
           - Name: leases
             IndexingMode: Consistent # Consistent (synchronous, immediate consistency) or Lazy (asynchronous, eventual consistency)
-            PartitionKey: '/id' # required
+            PartitionKey: '/id' # required            
 resourceGroup:
   name: commerce-pricing-service
   location: westus3

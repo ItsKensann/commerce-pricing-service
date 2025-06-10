@@ -11,5 +11,24 @@
     "C:\\Users\\119302\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
     "C:\\Users\\119302\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/columbia1938/_packaging/RES/nuget/v3/index.json.",
+      "projectPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/columbia1938/_packaging/Columbia-CSC/nuget/v3/index.json.",
+      "projectPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
+      "targetGraphs": []
+    }
+  ]
 }

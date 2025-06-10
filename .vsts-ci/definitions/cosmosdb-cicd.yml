@@ -1,0 +1,67 @@
+name: $(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)
+resources:
+  repositories:
+  - repository: 'az-pipelines-templates' # Name of the repository
+    type: github # github for GitHub repo's git for ADO repo's
+    endpoint: 'columbia1938-ODP-Retail' # name of the ado service connection
+    name: 'columbia1938/az-pipelines-templates' # org/repo
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - /.vsts-ci/definitions/cosmosdb-cicd.yml
+      - /ci/cosmosdb/*
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - /.vsts-ci/definitions/cosmosdb-cicd.yml
+      - /ci/cosmosdb/*
+
+stages:
+  - stage: Publish
+    displayName: Publish Stage
+    jobs:
+      - template: templates/cosmosdb-publish.template.yml@az-pipelines-templates
+  - stage: Deploy_Dev_Server
+    dependsOn: Publish
+    displayName: Deploy Dev Cosmos DB
+    jobs:
+      - template: templates/cosmosdb-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: dev                  # required   
+          Team: 'retailtech'
+  - stage: Deploy_c1_sit3_Server
+    dependsOn: Deploy_Dev_Server
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy c1-sit3 Cosmos DB
+    jobs:
+      - template: templates/cosmosdb-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: c1-sit3               # required         
+          Team: 'retailtech'
+  - stage: Deploy_c1_perf_Server
+    dependsOn: Deploy_Dev_Server
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy c1-perf Cosmos DB
+    jobs:
+      - template: templates/cosmosdb-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: c1-perf               # required         
+          Team: 'retailtech'
+  - stage: Deploy_Prod_Server
+    dependsOn: 
+      - Deploy_Dev_Server
+      - Deploy_c1_sit3_Server
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy Prod Cosmos DB
+    jobs:
+      - template: templates/cosmosdb-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: prod               # required         
+          Team: 'retailtech'
