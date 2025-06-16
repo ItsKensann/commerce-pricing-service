@@ -1,0 +1,33 @@
+Function:
+  SiteName: commercepricingchangefeed
+  SiteLocation: westus3
+  AlwaysOn: true
+  ConsumptionPlan: true
+  WebSecurityVersion: '2019-11-01' # options are 2019-01-18 and 2019-11-01
+  DataLakePaths:
+    - native/restricted_purchasing/commercepricingservice/v1/
+  CosmosDbAccount: 'retcommercepricing'
+  ServiceBus:
+    Topics:
+    - Name: commercepricingservicev1
+      requiresDuplicateDetection: true
+  AppSettings:
+    commercepricingTransactionsCollectionName: 'commercepricingtransactions'
+    commercepricingMasterCollectionName: 'commercepricingmaster'
+    leasesCollectionName: 'leases'
+    CosmosDb:DatabaseId: 'retcommercepricing'
+    CosmosDb:Containers: 'commercepricingtransactions,commercepricingmaster'
+    datalakefilesystem: ent
+    ServiceDetails:FamilyName: "commercepricingservice"
+    ServiceDetails:ServiceName: "CommercePricingService"
+    ServiceDetails:BaseGatewayPath: '' # https://api-dev.columbia.com/commercepricing/v1
+    CosmosResiliencySettings:MaxRetryCount: 10
+    CosmosResiliencySettings:MedianFirstRetryDelayMilliseconds: 250
+  DataLakeGen2: true
+Tags:
+  application: 'commercepricingchangefeed'
+  cost-center: 1002530100
+  managed-by: '#DTC_TechTeam@columbia.com'
+  squad-Id: 10101
+  enterprise-resource: 'Yes'
+  forecast-category: 'PnA'

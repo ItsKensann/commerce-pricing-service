@@ -1,15 +1,31 @@
-﻿namespace commercepricing.domain.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json.Serialization;
+using Columbia.Cosmos.Common.Interfaces;
+using commercepricing.domain.Interfaces;
+
+namespace commercepricing.domain.Models
 {
-    public class Price
+    public class Price : BaseUpdateableModel<Price>, IHasId<string>
     {
-        public string PriceId { get; set; } = string.Empty;
+        public string Id { get; set; } = string.Empty;
         public decimal Amount { get; set; }
-        public string Currency { get; set; } = "USD";
-        public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
-        public string? Promotion { get; set; }
-        public string PriceType { get; set; } = string.Empty;
-        public string PriceGroup { get; set; } = string.Empty;
-        public string Store { get; set; } = string.Empty;
-        public string Product { get; set; } = string.Empty;
+        public DateTime? CreatedDateTime { get; set; }
+        public DateTime? LastUpdatedDateTime { get; set; }
+        public string EventType { get; set; }
+
+        /// <summary>
+        /// Updates the model based on the specified input
+        /// </summary>
+        /// <param name="model">The model to use to update this model</param>
+        public override void Update(Price model)
+        {
+            if (model == null || Id != model.Id)
+                return;
+            CreatedDateTime = model.CreatedDateTime ?? CreatedDateTime;
+            LastUpdatedDateTime = model.LastUpdatedDateTime ?? LastUpdatedDateTime;
+            EventType = model.EventType ?? EventType;
+        }
     }
 }

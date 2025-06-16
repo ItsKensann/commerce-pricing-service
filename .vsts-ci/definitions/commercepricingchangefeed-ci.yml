@@ -1,0 +1,95 @@
+name: $(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)
+resources:
+  repositories:
+  - repository: 'az-pipelines-templates' # Name of the repository
+    type: github # github for GitHub repo's git for ADO repo's
+    endpoint: 'columbia1938-ODP-Retail' # name of the ado service connection
+    name: 'columbia1938/az-pipelines-templates' # org/repo
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - /.vsts-ci/definitions/commercepricingchangefeed-cicd.yml
+      - /ci/commercepricingchangefeed/*
+      - /src/commercepricing.infrastructure/*
+      - /src/commercepricing.domain/*
+      - /src/commercepricingchangefeed/*
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - /.vsts-ci/definitions/commercepricingchangefeed-cicd.yml
+      - /ci/commercepricingchangefeed/*
+      - /src/commercepricing.infrastructure/*
+      - /src/commercepricing.domain/*
+      - /src/commercepricingchangefeed/*
+
+stages:
+  - stage: Build
+    displayName: Build Stage
+    jobs:
+      - template: templates/function.template.yml@az-pipelines-templates
+        parameters:
+          SiteName: 'commercepricingchangefeed'
+          DotNetCoreVersion: '8.x'
+
+  - stage: Deploy_Dev
+    dependsOn: Build
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy Dev
+    jobs:
+      - template: templates/function-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: 'dev'
+          Team: 'retailtech'
+          SiteName: 'commercepricingchangefeed'
+
+  - stage: Deploy_SIT3
+    dependsOn: Deploy_Dev
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy SIT3
+    jobs:
+      - template: templates/function-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: 'c1-sit3'
+          Team: 'retailtech'
+          SiteName: 'commercepricingchangefeed'
+
+  - stage: Deploy_SIT4
+    dependsOn: Deploy_Dev
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy SIT4
+    jobs:
+      - template: templates/function-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: 'c1-sit4'
+          Team: 'retailtech'
+          SiteName: 'commercepricingchangefeed'
+
+  - stage: Deploy_Perf
+    dependsOn: Deploy_Dev
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy Perf
+    jobs:
+      - template: templates/function-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: 'c1-perf'
+          Team: 'retailtech'
+          SiteName: 'commercepricingchangefeed'
+
+  - stage: Deploy_Prod
+    dependsOn: 
+      - Deploy_SIT3
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy Prod
+    jobs:
+      - template: templates/function-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: 'prod'
+          Team: 'retailtech'
+          SiteName: 'commercepricingchangefeed'

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "TemplateParameterObjectFromTemplate": {
+      "type": "secureObject"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-05-10",
+      "name": "[concat(parameters('TemplateParameterObjectFromTemplate').buildNumber, '-function-template')]",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[parameters('TemplateParameterObjectFromTemplate').function.template]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "TemplateParameterObjectFromTemplate": {
+            "value": "[parameters('TemplateParameterObjectFromTemplate')]"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "2015-04-01",
+      "type": "Microsoft.Web/sites/config",
+      "name": "[concat(parameters('TemplateParameterObjectFromTemplate').function.siteName, '/', 'appsettings')]",
+      "dependsOn": [
+        "[concat(parameters('TemplateParameterObjectFromTemplate').buildNumber, '-function-template')]"
+      ],
+      "properties": {
+        "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('TemplateParameterObjectFromTemplate').storage.name,';AccountKey=',listkeys(resourceId(parameters('TemplateParameterObjectFromTemplate').storage.resourceGroupName,'Microsoft.Storage/storageAccounts', parameters('TemplateParameterObjectFromTemplate').storage.name), '2015-05-01-preview').key1,';')]",
+        "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('TemplateParameterObjectFromTemplate').storage.name,';AccountKey=',listkeys(resourceId(parameters('TemplateParameterObjectFromTemplate').storage.resourceGroupName,'Microsoft.Storage/storageAccounts', parameters('TemplateParameterObjectFromTemplate').storage.name), '2015-05-01-preview').key1,';')]",
+        "AzureWebJobsSecretStorageType": "Files",
+        "FUNCTIONS_EXTENSION_VERSION": "~4",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+      }
+    }
+  ]
+}

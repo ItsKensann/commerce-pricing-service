@@ -1,0 +1,12 @@
+Function:
+  AlwaysOn: true
+  ConsumptionPlan: false
+  ServicePlanTier: EP1  # <===
+  WorkerType: Windows   # <=== optional, Windows (default) or Linux
+  MinWorkerCount: 1     # <=== optional, defaults to 1
+  MaxWorkerCount: 3     # <=== optional, defaults to 20
+  PreWarmedCount: 1
+  AlwaysReadyCount: 1
+  StopToDeploy: true
+  AppSettings:
+    ServiceDetails:BaseGatewayPath: '' # https://api.columbia.com/commercepricing/v1

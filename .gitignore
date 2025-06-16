@@ -332,6 +332,7 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+**/local.settings.json
 
 # OpenCover UI analysis results
 OpenCover/

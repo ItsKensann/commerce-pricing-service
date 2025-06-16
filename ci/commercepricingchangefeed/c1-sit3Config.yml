@@ -1,0 +1,15 @@
+Function:
+  SiteName: commercepricingchangefeed
+  SiteLocation: westus
+  AlwaysOn: true
+  ConsumptionPlan: false
+  ServicePlanTier: S1  # <===
+  WorkerType: Windows   # <=== optional, Windows (default) or Linux
+  MinWorkerCount: 1     # <=== optional, defaults to 1
+  MaxWorkerCount: 3     # <=== optional, defaults to 20
+  PreWarmedCount: 1
+  AlwaysReadyCount: 1
+  StopToDeploy: true
+  WebSecurityVersion: '2019-11-01' # options are 2019-01-18 and 2019-11-01
+  AppSettings:
+    ServiceDetails:BaseGatewayPath: '' # https://api-c1-sit3.columbia.com/commercepricing/v1
