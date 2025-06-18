@@ -15,7 +15,7 @@ Function:
     commercepricingTransactionsCollectionName: 'commercepricingtransactions'
     commercepricingMasterCollectionName: 'commercepricingmaster'
     leasesCollectionName: 'leases'
-    CosmosDb:DatabaseId: 'retcommercepricing'
+    CosmosDb:DatabaseId: 'commercepricing'
     CosmosDb:Containers: 'commercepricingtransactions,commercepricingmaster'
     datalakefilesystem: ent
     ServiceDetails:FamilyName: "commercepricingservice"

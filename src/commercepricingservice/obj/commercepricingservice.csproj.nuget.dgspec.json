@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj": {}
+    "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj": {
+    "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj",
+        "projectUniqueName": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj",
         "projectName": "commercepricing.domain",
-        "projectPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj",
-        "packagesPath": "C:\\Users\\119302\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.domain\\obj\\",
+        "projectPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj",
+        "packagesPath": "C:\\Users\\88258\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\119302\\Documents\\commerce-pricing-service\\NuGet.Config",
-          "C:\\Users\\119302\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\88258\\Repository\\commerce-pricing-service\\NuGet.Config",
+          "C:\\Users\\88258\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,6 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://pkgs.dev.azure.com/columbia1938/_packaging/Columbia-CSC/nuget/v3/index.json": {},
           "https://pkgs.dev.azure.com/columbia1938/_packaging/RES/nuget/v3/index.json": {}
@@ -78,25 +79,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj": {
+    "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj",
         "projectName": "commercepricing.infrastructure",
-        "projectPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj",
-        "packagesPath": "C:\\Users\\119302\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj",
+        "packagesPath": "C:\\Users\\88258\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\119302\\Documents\\commerce-pricing-service\\NuGet.Config",
-          "C:\\Users\\119302\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\88258\\Repository\\commerce-pricing-service\\NuGet.Config",
+          "C:\\Users\\88258\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -105,6 +106,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://pkgs.dev.azure.com/columbia1938/_packaging/Columbia-CSC/nuget/v3/index.json": {},
           "https://pkgs.dev.azure.com/columbia1938/_packaging/RES/nuget/v3/index.json": {}
@@ -113,8 +115,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj": {
-                "projectPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj"
+              "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj": {
+                "projectPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.domain\\commercepricing.domain.csproj"
               }
             }
           }
@@ -150,25 +152,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj": {
+    "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
+        "projectUniqueName": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
         "projectName": "commercepricingservice",
-        "projectPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
-        "packagesPath": "C:\\Users\\119302\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricingservice\\obj\\",
+        "projectPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricingservice\\commercepricingservice.csproj",
+        "packagesPath": "C:\\Users\\88258\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricingservice\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\119302\\Documents\\commerce-pricing-service\\NuGet.Config",
-          "C:\\Users\\119302\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\88258\\Repository\\commerce-pricing-service\\NuGet.Config",
+          "C:\\Users\\88258\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -177,6 +179,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://pkgs.dev.azure.com/columbia1938/_packaging/Columbia-CSC/nuget/v3/index.json": {},
           "https://pkgs.dev.azure.com/columbia1938/_packaging/RES/nuget/v3/index.json": {}
@@ -185,8 +188,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj": {
-                "projectPath": "C:\\Users\\119302\\Documents\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj"
+              "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj": {
+                "projectPath": "C:\\Users\\88258\\Repository\\commerce-pricing-service\\src\\commercepricing.infrastructure\\commercepricing.infrastructure.csproj"
               }
             }
           }
@@ -271,7 +274,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
