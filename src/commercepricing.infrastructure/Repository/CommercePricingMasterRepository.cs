@@ -1,20 +1,20 @@
 ﻿using Columbia.Cosmos.Common;
 using Columbia.Cosmos.Common.Interfaces;
-using commercepricing.domain.Interfaces;
-using commercepricing.domain.Models;
+using commercepricing.infrastructure.Interfaces;
+using commercepricing.infrastructure.Models;
 using Microsoft.Azure.Cosmos;
 
 namespace commercepricing.infrastructure.Repository
 {
-    public class CommercePricingMasterRepository : BaseCosmosRepository<Price, string>, ICommercePricingMasterRepository
+    public class CommercePricingMasterRepository : BaseCosmosRepository<RetailPricingDto, string>, ICommercePricingMasterRepository
     {
         public CommercePricingMasterRepository(ICosmosDbContainerFactory cosmosDbContainerFactory) : base(cosmosDbContainerFactory, new CosmosLinqQuery()) { }
 
         public override string ContainerName => "commercepricingmaster";
 
-        public override PartitionKey ResolvePartitionKey(Price item)
+        public override PartitionKey ResolvePartitionKey(RetailPricingDto item)
         {
-            return new PartitionKey(item.Id);
+            return new PartitionKey(item.UPC);
         }
         public override PartitionKey ResolvePartitionKey(string id)
         {

@@ -6,9 +6,9 @@ using Columbia.Logging.ApplicationInsights.Worker.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using commercepricing.domain.Interfaces;
-using commercepricing.domain.Models;
 using commercepricing.infrastructure.Repository;
+using commercepricing.infrastructure.Interfaces;
+using commercepricing.infrastructure.Models;
 
 
 namespace commercepricingchangefeed
@@ -41,7 +41,7 @@ namespace commercepricingchangefeed
                     //);
 
                     services.AddSingleton<ICommercePricingMasterRepository, CommercePricingMasterRepository>();
-                    services.AddUpserterAsSingleton<ICommercePricingMasterRepository, Price, string>();
+                    services.AddUpserterAsSingleton<ICommercePricingMasterRepository, RetailPricingDto, string>();
 
 
                     // logic for service details & data lake configuration

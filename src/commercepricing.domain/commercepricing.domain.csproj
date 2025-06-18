@@ -11,5 +11,9 @@
     <PackageReference Include="Columbia.Cosmos.Common" Version="3.2.0" />
 	<PackageReference Include="Microsoft.ApplicationInsights" Version="2.22.0" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 
 </Project>

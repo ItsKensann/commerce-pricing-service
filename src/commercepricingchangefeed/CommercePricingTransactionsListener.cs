@@ -1,12 +1,3 @@
-using Columbia.Cosmos.Common.Interfaces;
-using commercepricing.domain.Interfaces;
-using commercepricing.domain.Models;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace commercepricingchangefeed
 {

@@ -1,4 +1,5 @@
-namespace commercepricing.domain.Interfaces
+﻿
+namespace commercepricing.infrastructure.Repository
 {
     /// <summary>
     /// Defines an interface for models that are updateable

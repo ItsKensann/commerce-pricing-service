@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using commercepricing.domain.Interfaces;
 
-namespace commercepricing.domain.Models
+using commercepricing.infrastructure.Interfaces;
+
+namespace commercepricing.infrastructure.Models
 {
     /// <summary>
     /// Specifies the abstract base class for an <see cref="IUpdateableModel{T}"/>
@@ -28,8 +26,8 @@ namespace commercepricing.domain.Models
             }
             else
             {
-                self?.Update(other);
-                return self;
+                self?.Update(other!);
+                return self!;
             }
         }
 
