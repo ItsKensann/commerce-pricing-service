@@ -5,7 +5,7 @@ Function:
   ConsumptionPlan: true
   WebSecurityVersion: '2019-11-01' # options are 2019-01-18 and 2019-11-01
   DataLakePaths:
-    - native/restricted_purchasing/commercepricingservice/v1/
+    - /native/restricted_purchasing/commercepricingservice/v1/
   CosmosDbAccount: 'retcommercepricing'
   ServiceBus:
     Topics:
