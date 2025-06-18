@@ -1,10 +1,10 @@
 retcommercepricing-cosmosdb:
   type: cosmosdb
   deploymentParams:
-    DBName: 'retcommercepricing'
+    DBName: 'commercepricing'
     DBTier: 'Standard'
     Databases: 
-      - Name: retcommercepricing
+      - Name: commercepricing
         RUPolicy: Autoscale
         SharedRU: 15000
         Collections:

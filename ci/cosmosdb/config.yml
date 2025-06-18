@@ -1,7 +1,7 @@
 retcommercepricing-cosmosdb:
   type: cosmosdb
   deploymentParams:
-    DBName: 'retcommercepricing'
+    DBName: 'commercepricing'
     DBTier: 'Standard'
     EnableMultipleWriteLocations: 
       Enabled: false 
@@ -10,7 +10,7 @@ retcommercepricing-cosmosdb:
           IsZoneRedundant: false
           FailoverPriority: 0 
     Databases: 
-      - Name: retcommercepricing
+      - Name: commercepricing
         RUPolicy: Autoscale
         SharedRU: 4000
         Collections:
