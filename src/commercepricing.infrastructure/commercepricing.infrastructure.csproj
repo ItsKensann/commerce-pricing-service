@@ -9,4 +9,12 @@
   <ItemGroup>
     <ProjectReference Include="..\commercepricing.domain\commercepricing.domain.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="csc.azure.datalake.client" Version="4.0.0" />
+  </ItemGroup>
 </Project>
