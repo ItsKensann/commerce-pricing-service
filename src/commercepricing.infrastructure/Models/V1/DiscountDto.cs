@@ -5,7 +5,7 @@ namespace commercepricing.infrastructure.Models
     /// <summary>
     /// Discount DTO: Different types of discount list
     /// </summary>
-    public class DiscountDto
+    public class DiscountDto : BaseUpdateableModel<DiscountDto>
     {
         /// <summary>
         /// Type: e.g. Friends and Family
@@ -42,5 +42,18 @@ namespace commercepricing.infrastructure.Models
         /// </summary>
         [DataMember(Name = "quantity")]
         public int? Quantity { get; set; }
+
+        public override void Update(DiscountDto model)
+        {
+            if (model == null || Id != model.Id)
+                return;
+
+            Type = model.Type ?? Type;
+            Description = model.Description ?? Description;
+            Amount = model.Amount ?? Amount;
+            CurrencyCode = model.CurrencyCode ?? CurrencyCode;
+            Quantity = model.Quantity ?? Quantity;
+
+        }
     }
 }

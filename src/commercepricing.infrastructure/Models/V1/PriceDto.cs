@@ -6,7 +6,7 @@ namespace commercepricing.infrastructure.Models
     /// Price DTO: Different types of pricing list
     /// </summary>
     [DataContract]
-    public class PriceDto
+    public class PriceDto : BaseUpdateableModel<PriceDto>
     {
         /// <summary>
         /// Type: e.g. MAP, CTP, ASP, etc.
@@ -43,5 +43,20 @@ namespace commercepricing.infrastructure.Models
         /// </summary>
         [DataMember(Name = "effectiveToDateTime")]
         public string? EffectiveToDateTime { get; set; }
+
+        public override void Update(PriceDto model)
+        {
+            if (model == null)
+                return;
+
+            Type = model.Type;
+            PriceGroupCode = model.PriceGroupCode;
+            Price = model.Price;
+            PriorPrice = model.PriorPrice;
+            EffectiveFromDateTime = model.EffectiveFromDateTime;
+            EffectiveToDateTime = model.EffectiveToDateTime;
+
+        }
     }
+
 }

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using commercepricing.infrastructure.Interfaces;
 
 namespace commercepricing.infrastructure.Models
 {
@@ -6,8 +7,14 @@ namespace commercepricing.infrastructure.Models
     /// Retail Pricing DTO
     /// </summary>
     [DataContract]
-    public class RetailPricingDto
+    public class RetailPricingDto : BaseUpdateableModel<RetailPricingDto>, IHasId<string>
     {
+        /// <summary>
+        /// Combination Id that makes it unique: upc+region+locationId
+        /// </summary>
+        [DataMember(Name = "Id")]
+        public required string Id { get; set; }
+
         /// <summary>
         /// Location ID: store or site three digits id
         /// </summary>
@@ -73,5 +80,31 @@ namespace commercepricing.infrastructure.Models
         /// </summary>
         [DataMember(Name = "discounts")]
         public DiscountDto[]? Discounts { get; set; }
+
+        /// <summary>
+        /// Discounts: Event type for Transactions
+        /// </summary>
+        [DataMember(Name = "eventType")]
+        public string? EventType { get; set; }
+
+        public override void Update(RetailPricingDto model)
+        {
+            if (model == null || Id != model.Id)
+                return;
+
+            // Update simple properties
+            LocationId = model.LocationId ?? LocationId;
+            Region = model.Region ?? Region;
+            Channel = model.Channel ?? Channel;
+            Style = model.Style ?? Style;
+            Color = model.Color ?? Color;
+            Size = model.Size ?? Size;
+            Dimension = model.Dimension ?? Dimension;
+            UPC = model.UPC ?? UPC;
+            Prices = model.Prices ?? Prices;
+            Promotions = model.Promotions ?? Promotions;
+            Discounts = model.Discounts ?? Discounts; 
+            EventType = model.EventType ?? EventType;
+        }
     }
 }

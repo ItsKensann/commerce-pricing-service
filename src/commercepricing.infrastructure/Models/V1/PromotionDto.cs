@@ -6,7 +6,7 @@ namespace commercepricing.infrastructure.Models
     /// Promotion DTO: Different types of promotion list
     /// </summary>
     [DataContract]
-    public class PromotionDto
+    public class PromotionDto : BaseUpdateableModel<PromotionDto>
     {
         /// <summary>
         /// Type
@@ -43,5 +43,17 @@ namespace commercepricing.infrastructure.Models
         /// </summary>
         [DataMember(Name = "quantity")]
         public int? Quantity { get; set; }
+
+        public override void Update(PromotionDto model)
+        {
+            if (model == null || Id != model.Id)
+                return;
+
+            Type = model.Type ?? Type;
+            Description = model.Description ?? Description;
+            Amount = model.Amount ?? Amount;
+            CurrencyCode = model.CurrencyCode ?? CurrencyCode;
+            Quantity = model.Quantity ?? Quantity;
+        }
     }
 }

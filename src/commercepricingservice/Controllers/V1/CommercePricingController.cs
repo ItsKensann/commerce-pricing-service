@@ -1,5 +1,6 @@
 using Columbia.Logging.Core;
 using commercepricing.infrastructure.Configuration;
+using commercepricing.infrastructure.Models;
 using commercepricing.infrastructure.Models.V1;
 using commercepricingservice.Common.Interfaces;
 using commercepricingservice.Middleware;
@@ -45,7 +46,7 @@ namespace commercepricingservice.Controllers.V1
         /// </summary>
         [HttpPut("{upc}")]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Put))]
-        public async Task<ActionResult> CreateOrUpdateCommercePricingByUpc([FromRoute] string upc, [FromBody] RetailPricingTransactionDto dto, [FromQuery] string eventType = null!)
+        public async Task<ActionResult> CreateOrUpdateCommercePricingByUpc([FromRoute] string upc, [FromBody] RetailPricingDto dto, [FromQuery] string eventType = null!)
         {
             var response = new ResponseDto();
 

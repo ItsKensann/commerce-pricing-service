@@ -7,13 +7,13 @@ using Microsoft.Azure.Cosmos;
 
 namespace commercepricing.infrastructure.Repository
 {
-    public class CommercePricingTransactionsRepository : BaseCosmosRepository<Transaction<RetailPricingTransactionDto, string>, Guid>, ICommercePricingTransactionsRepository
+    public class CommercePricingTransactionsRepository : BaseCosmosRepository<Transaction<RetailPricingDto, string>, Guid>, ICommercePricingTransactionsRepository
     {
         public CommercePricingTransactionsRepository(ICosmosDbContainerFactory cosmosDbContainerFactory) : base(cosmosDbContainerFactory, new CosmosLinqQuery()) { }
 
         public override string ContainerName => "commercepricingtransactions";
 
-        public override PartitionKey ResolvePartitionKey(Transaction<RetailPricingTransactionDto, string> item)
+        public override PartitionKey ResolvePartitionKey(Transaction<RetailPricingDto, string> item)
         {
             return new PartitionKey(item.Payload!.Id);
         }

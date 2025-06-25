@@ -14,7 +14,7 @@ namespace commercepricing.infrastructure.Repository
 
         public override PartitionKey ResolvePartitionKey(RetailPricingDto item)
         {
-            return new PartitionKey(item.UPC);
+            return new PartitionKey(item.Id);
         }
         public override PartitionKey ResolvePartitionKey(string id)
         {

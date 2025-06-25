@@ -1,4 +1,6 @@
-﻿using commercepricing.infrastructure.Interfaces;
+﻿using System.Net.Http.Json;
+using System.Text.Json;
+using commercepricing.infrastructure.Interfaces;
 using commercepricing.infrastructure.Models;
 using commercepricing.infrastructure.Models.V1;
 using commercepricingservice.Common.Interfaces;
@@ -24,7 +26,7 @@ namespace commercepricingservice.RequestHandlers.V1
         /// <summary>
         /// Retail Pricing Transaction Dto
         /// </summary>
-        public RetailPricingTransactionDto? Dto { get; set; }
+        public RetailPricingDto? Dto { get; set; }
     }
 
     /// <summary>
@@ -47,11 +49,13 @@ namespace commercepricingservice.RequestHandlers.V1
         /// </summary>
         public async Task<Guid> HandleAsync(CreateOrUpdateCommercePricingQuery request)
         {
-            var payload = JsonConvert.DeserializeObject<RetailPricingTransactionDto>(request.Dto!.ToString()!);
+       
+            var payload = JsonConvert.DeserializeObject<RetailPricingDto>(request.Dto!.ToString()!);
+
 
             //As it stands if we don't pass the purchase order Id in via the DTO the upsert will break because
             //the transaction collection uses it as the partition key.
-            var transaction = new Transaction<RetailPricingTransactionDto, string>
+            var transaction = new Transaction<RetailPricingDto, string>
             {
                 Id = Guid.NewGuid(),
                 EventType = request.EventType,
@@ -64,3 +68,4 @@ namespace commercepricingservice.RequestHandlers.V1
         }
     }
 }
+

@@ -5,5 +5,5 @@ using commercepricing.infrastructure.Models.V1;
 namespace commercepricing.infrastructure.Interfaces
 {
     // temp price DTO for now
-    public interface ICommercePricingTransactionsRepository : IRepository<Transaction<RetailPricingTransactionDto, string>, Guid> { }
+    public interface ICommercePricingTransactionsRepository : IRepository<Transaction<RetailPricingDto, string>, Guid> { }
 }

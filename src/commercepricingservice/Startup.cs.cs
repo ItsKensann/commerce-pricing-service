@@ -121,6 +121,7 @@ namespace commercepricingservice
             services.AddOptions();
             services.Configure<ServiceDetails>(_configuration.GetSection("ServiceDetails"));
             services.AddColumbiaTelemetry();
+
         }
 
         /// <summary>

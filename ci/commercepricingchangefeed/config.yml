@@ -20,7 +20,7 @@ Function:
     datalakefilesystem: ent
     ServiceDetails:FamilyName: "commercepricingservice"
     ServiceDetails:ServiceName: "CommercePricingService"
-    ServiceDetails:BaseGatewayPath: '' # https://api-dev.columbia.com/commercepricing/v1
+    ServiceDetails:BaseGatewayPath: '' #https://api-dev.columbia.com/commercepricing/v1
     CosmosResiliencySettings:MaxRetryCount: 10
     CosmosResiliencySettings:MedianFirstRetryDelayMilliseconds: 250
   DataLakeGen2: true

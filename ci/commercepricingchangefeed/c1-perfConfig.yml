@@ -9,4 +9,4 @@ Function:
   AlwaysReadyCount: 1
   StopToDeploy: true
   AppSettings:
-    ServiceDetails:BaseGatewayPath: '' # https://api-c1-perf.columbia.com/commercepricing/v1
+    ServiceDetails:BaseGatewayPath: '' #https://api-c1-perf.columbia.com/commercepricing/v1

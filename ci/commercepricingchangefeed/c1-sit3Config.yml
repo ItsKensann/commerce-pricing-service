@@ -12,4 +12,4 @@ Function:
   StopToDeploy: true
   WebSecurityVersion: '2019-11-01' # options are 2019-01-18 and 2019-11-01
   AppSettings:
-    ServiceDetails:BaseGatewayPath: '' # https://api-c1-sit3.columbia.com/commercepricing/v1
+    ServiceDetails:BaseGatewayPath: '' #https://api-c1-sit3.columbia.com/commercepricing/v1
