@@ -1,16 +1,21 @@
 ﻿using Columbia.Cosmos.Common.Extensions;
 using Columbia.Cosmos.Common.FaultTolerance;
 using Columbia.Logging.ApplicationInsights.Web.Extensions;
+using commercepricing.infrastructure.Interfaces;
+using commercepricing.infrastructure.Repository;
 using commercepricingservice.Common.Caching;
 using commercepricingservice.Common.Interfaces;
 using commercepricingservice.Configurations;
 using commercepricingservice.Middleware;
+using commercepricingservice.RequestHandlers.V1;
 using commercepricingservice.Swagger;
 using commercepricingservice.SwaggerConfigurations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using System.Text.Json.Serialization;
+using Csc.Enterprise.Common.Dto;
+using commercepricing.infrastructure.Models;
 
 namespace commercepricingservice
 {
@@ -84,6 +89,8 @@ namespace commercepricingservice
                 options.SchemaFilter<EnumSchemaFilter>();
             });
 
+            services.AddScoped<TransactionState>();
+
             services.AddSingleton(provider =>
             {
                 var details = new ServiceConfiguration();
@@ -100,7 +107,14 @@ namespace commercepricingservice
                 return apiConfiguration;
             });
 
-            //services.AddSwaggerExamplesFromAssemblyOf<D365PurchaseOrderDtoExample>();
+            // Commerce Pricing
+            services.AddTransient<ICommercePricingMasterRepository, CommercePricingMasterRepository>();
+            services.AddScoped<IRequestHandler<CreateOrUpdateCommercePricingQuery, Guid>, CreateOrUpdatePricingHandler>();
+            services.AddScoped<IRequestHandler<string, RetailPricingDto>, GetPricingByIdHandler>();
+
+            // Transaction 
+            services.AddTransient<ICommercePricingTransactionsRepository, CommercePricingTransactionsRepository>();
+            services.AddScoped<IRequestHandler<GetTransactionsByPricingIdQuery, IEnumerable<TransactionDto>>, GetTransactionsByPricingIdHandler>();
 
             services.AddHealthChecks();
 

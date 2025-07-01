@@ -99,15 +99,18 @@ namespace commercepricingservice.Swagger
             else
             {
                 // For v1 and v2 endpoints, add the headers as required
-                foreach (var header in _serviceConfiguration.RequiredHeaders!)
+                if (_serviceConfiguration.RequiredHeaders != null)
                 {
-                    operation.Parameters.Add(new OpenApiParameter
+                    foreach (var header in _serviceConfiguration.RequiredHeaders!)
                     {
-                        Name = header.Name,
-                        Description = header.Description,
-                        In = ParameterLocation.Header,
-                        Required = true
-                    });
+                        operation.Parameters.Add(new OpenApiParameter
+                        {
+                            Name = header.Name,
+                            Description = header.Description,
+                            In = ParameterLocation.Header,
+                            Required = true
+                        });
+                    }
                 }
             }
         }

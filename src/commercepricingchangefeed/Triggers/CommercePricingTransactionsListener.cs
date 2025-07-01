@@ -1,7 +1,6 @@
 using Columbia.Cosmos.Common.Interfaces;
 using commercepricing.infrastructure.Interfaces;
 using commercepricing.infrastructure.Models;
-using commercepricing.infrastructure.Models.V1;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using System;

@@ -1,10 +1,6 @@
-﻿using System.Net.Http.Json;
-using System.Text.Json;
-using commercepricing.infrastructure.Interfaces;
+﻿using commercepricing.infrastructure.Interfaces;
 using commercepricing.infrastructure.Models;
-using commercepricing.infrastructure.Models.V1;
 using commercepricingservice.Common.Interfaces;
-using Newtonsoft.Json;
 
 namespace commercepricingservice.RequestHandlers.V1
 {
@@ -49,8 +45,6 @@ namespace commercepricingservice.RequestHandlers.V1
         /// </summary>
         public async Task<Guid> HandleAsync(CreateOrUpdateCommercePricingQuery request)
         {
-       
-            var payload = JsonConvert.DeserializeObject<RetailPricingDto>(request.Dto!.ToString()!);
 
 
             //As it stands if we don't pass the purchase order Id in via the DTO the upsert will break because
@@ -59,7 +53,7 @@ namespace commercepricingservice.RequestHandlers.V1
             {
                 Id = Guid.NewGuid(),
                 EventType = request.EventType,
-                Payload = payload!
+                Payload = request.Dto!
             };
 
             await _transactionRepository.UpsertItemAsync(transaction);

@@ -1,0 +1,85 @@
+name: $(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)
+resources:
+  repositories:
+  - repository: 'az-pipelines-templates' # Name of the repository
+    type: github # github for GitHub repo's git for ADO repo's
+    endpoint: 'columbia1938-ODP-Retail' # name of the ado service connection
+    name: 'columbia1938/az-pipelines-templates' # org/repo
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - /.vsts-ci/definitions/commercepricingservice-cicd.yml
+      - /ci/commercepricingservice/*
+      - /src/commercepricingservice/*
+      - /src/commercepricing.infrastructure/*
+      - /src/commercepricing.domain/*
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - /.vsts-ci/definitions/commercepricingservice-cicd.yml
+      - /ci/commercepricingservice/*
+      - /src/commercepricingservice/*
+      - /src/commercepricing.infrastructure/*
+      - /src/commercepricing.domain/*
+
+stages:
+  - stage: Build
+    displayName: Build Stage
+    jobs:
+      - template: templates/api.template.yml@az-pipelines-templates
+        parameters:
+          SiteName: commercepricingservice           
+          DotNetCoreVersion: '8.x'
+
+  - stage: Deploy_Dev
+    dependsOn: Build
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy Dev
+    jobs:
+      - template: templates/api-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: dev                           
+          Team: retailtech                                 
+          SiteName: commercepricingservice            
+
+  - stage: Deploy_c1sit3
+    dependsOn: Deploy_Dev
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy c1-Sit3
+    jobs:
+      - template: templates/api-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: c1-sit3                    
+          Team: retailtech                                
+          SiteName: commercepricingservice            
+
+  - stage: Deploy_c1_perf
+    dependsOn: Deploy_Dev
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy c1-perf
+    jobs:
+      - template: templates/api-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: c1-perf                      
+          Team: retailtech                                 
+          SiteName: commercepricingservice           
+
+  - stage: Deploy_Prod
+    dependsOn: 
+      - Deploy_Dev
+      - Deploy_c1sit3
+    condition: "and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))"
+    displayName: Deploy Prod
+    jobs:
+      - template: templates/api-deploy.template.yml@az-pipelines-templates
+        parameters:
+          Environment: prod                        
+          Team: retailtech                                 
+          SiteName: commercepricingservice           

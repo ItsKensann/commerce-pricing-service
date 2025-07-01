@@ -1,0 +1,59 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+  "parameters": {
+    "TemplateParameterObjectFromTemplate": {
+      "type": "secureObject"
+    }
+  },
+    "variables": {},
+    "resources": [
+      {
+        "apiVersion": "2017-05-10",
+        "name": "[concat(parameters('TemplateParameterObjectFromTemplate').buildNumber, '-api-template')]",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[parameters('TemplateParameterObjectFromTemplate').api.template]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "TemplateParameterObjectFromTemplate": {
+              "value": "[parameters('TemplateParameterObjectFromTemplate')]"
+            }
+          }
+        }
+      },
+      {
+        "condition": "[equals(parameters('TemplateParameterObjectFromTemplate').cosmosdb.exists, 'True')]",
+        "apiVersion": "2017-05-10",
+        "name": "[concat(parameters('TemplateParameterObjectFromTemplate').buildNumber, '-cosmosdb-template')]",
+        "type": "Microsoft.Resources/deployments",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[parameters('TemplateParameterObjectFromTemplate').cosmosdb.template]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "TemplateParameterObjectFromTemplate": {
+              "value": "[parameters('TemplateParameterObjectFromTemplate')]"
+            }
+          }
+        }
+      },
+      {
+        "apiVersion": "2015-04-01",
+        "type": "Microsoft.Web/sites/slots/config",
+        "name": "[concat(parameters('TemplateParameterObjectFromTemplate').api.siteName, '/', parameters('TemplateParameterObjectFromTemplate').api.stagingSlotName, '/', 'appsettings')]",
+        "dependsOn": [
+          "[concat(parameters('TemplateParameterObjectFromTemplate').buildNumber, '-api-template')]",
+          "[concat(parameters('TemplateParameterObjectFromTemplate').buildNumber, '-cosmosdb-template')]"
+        ],
+        "properties": {
+          "appsetting1": "appsetting1value"
+        }
+      }
+    ]
+}

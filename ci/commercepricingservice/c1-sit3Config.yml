@@ -1,0 +1,29 @@
+API:
+  AppSettings:
+    ServiceDetails:BaseGatewayPath: 'https://api-c1-sit3.columbia.com/commercepricing'
+  Autoscale:
+    MaxCapacity: 5
+    MinCapacity: 1
+    DefaultCapacity: 1
+    Out:
+      MetricTrigger:
+        MetricName: 'Requests'
+        CustomResourceName: 'commercepricingservice'
+        CustomResourceType: "Microsoft.web/sites" # optional but req if custom resource specified
+        TimeWindow: 10 # minutes only
+        Operator: GreaterThan
+        Threshold: 100
+      ScaleAction:
+        Value: 1 # how much to increase capacity of resource by
+        Cooldown: 10 # the amount of time to wait after a scale operation before scaling again in minutes
+    In:
+      MetricTrigger:
+        MetricName: 'Requests'
+        CustomResourceName: 'commercepricingservice'
+        CustomResourceType: "Microsoft.web/sites" # optional but req if custom resource specified
+        TimeWindow: 10 # minutes only
+        Operator: LessThan
+        Threshold: 50
+      ScaleAction:
+        Value: 1 # how much to decrease capacity of resource by
+        Cooldown: 30

@@ -1,0 +1,9 @@
+API:
+  AppSettings:
+    ServiceDetails:BaseGatewayPath: 'https://api.columbia.com/d365purchaseorder'
+  ServicePlanSku: 'PremiumV2'
+  ServicePlanTier: 'P1v2'
+  Autoscale:
+    MinCapacity: 1
+    MaxCapacity: 10
+    DefaultCapacity: 1

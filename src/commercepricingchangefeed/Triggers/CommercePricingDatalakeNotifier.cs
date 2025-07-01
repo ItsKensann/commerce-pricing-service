@@ -57,7 +57,7 @@ public class CommercePricingDatalakeNotifier
 
                     byte[] byteArray = Encoding.ASCII.GetBytes(json);
                     MemoryStream stream = new MemoryStream(byteArray);
-                    
+
                     var path = new StringBuilder()
                         .Append(_dataLakeConfig.Value.DataLakePaths.Substring(0))
                         .Append("/").Append(timestamp.ToString("yyyyMMdd"))
@@ -68,7 +68,7 @@ public class CommercePricingDatalakeNotifier
                     await _dataLakeClient.CreateFileAsync(path.ToString(), stream);
                     _logger.LogInformation($"Succesfully sent out Commerce Pricing document for Id {uniqueId} to Data Lake.");
                 }));
-            }            
+            }
         }
         catch (Exception ex)
         {
