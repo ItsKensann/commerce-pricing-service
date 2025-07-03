@@ -20,8 +20,11 @@ namespace commercepricingservice.Middleware
         /// <param name="context"></param>
         public BadRequestResponse(ActionContext context)
         {
-            TransactionId = context.HttpContext.Items["transactionId"]!.ToString()!;
-            OperationName = context.HttpContext.Items["operationName"]!.ToString()!;
+            TransactionId = context.HttpContext.Items.TryGetValue("transactionId", out var txnId)
+            ? txnId?.ToString() ?? "Unknown" : "Unknown";
+            OperationName = context.HttpContext.Items.TryGetValue("operationName", out var opName)
+            ? opName?.ToString() ?? "Unknown" : "Unknown";
+
             StatusCode = (int)HttpStatusCode.BadRequest;
             StatusDescription = nameof(HttpStatusCode.BadRequest);
             Errors = GenerateErrors(context);

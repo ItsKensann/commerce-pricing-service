@@ -77,6 +77,7 @@ namespace commercepricingservice.Controllers.V1
             {
                 var message = $"UPC does not match the payload";
                 _logger.LogWarning(message);
+
                 response.Errors.Add($"UPC does not match the payload");
                 return BadRequest(response);
             }

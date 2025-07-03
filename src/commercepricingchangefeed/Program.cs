@@ -1,6 +1,7 @@
 ﻿using Columbia.Cosmos.Common.Extensions;
 using Columbia.Cosmos.Common.FaultTolerance;
 using Columbia.Logging.ApplicationInsights.Worker.Extensions;
+using Columbia.ServiceBus.Common.Extensions;
 using commercepricing.infrastructure.Configuration;
 using commercepricing.infrastructure.Interfaces;
 using commercepricing.infrastructure.Models;
@@ -26,10 +27,13 @@ namespace commercepricingchangefeed
                 {
                     IConfigurationRoot config = new ConfigurationBuilder()
                                             .SetBasePath(Environment.CurrentDirectory)
-                                            .AddJsonFile("local.settings.json")
+                                            .AddJsonFile("local.settings.json", optional: true)
                                             .AddEnvironmentVariables()
                                             .Build();
                     services.AddLoggingDependencies();
+
+                    var topic = config["serviceBusTopicList"].Split(",")[0];
+                    services.AddServiceBusClient(config[$"serviceBusConnection-{topic}"], topic);
 
                     services.AddCosmosDb(
                         config.GetValue<string>("cosmosdb-connection"),
