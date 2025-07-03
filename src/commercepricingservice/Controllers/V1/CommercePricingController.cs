@@ -7,6 +7,7 @@ using commercepricingservice.RequestHandlers.V1;
 using Csc.Enterprise.Common.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.ComponentModel;
 using System.Net.Mime;
 
 namespace commercepricingservice.Controllers.V1
@@ -85,11 +86,9 @@ namespace commercepricingservice.Controllers.V1
             _activityTagger.AddTag("UPC", dto.UPC!);
             _logger.LogInformation("Endpoint was called: {Endpoint} for Retail Pricing: {upc}", nameof(CreateOrUpdateCommercePricingByUpc), dto.UPC);
 
-            // handle the request
-            var payloadId = $"{dto.UPC} + {dto.Region} + {dto.LocationId}";
             var queryObj = new CreateOrUpdateCommercePricingQuery
             {
-                Id = payloadId,
+                Id = dto.Id,
                 EventType = eventType,
                 Dto = dto
             };

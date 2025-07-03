@@ -47,7 +47,7 @@ namespace commercepricingservice.RequestHandlers.V1
         {
 
 
-            //As it stands if we don't pass the purchase order Id in via the DTO the upsert will break because
+            //As it stands if we don't pass the retail pricing Id in via the DTO the upsert will break because
             //the transaction collection uses it as the partition key.
             var transaction = new Transaction<RetailPricingDto, string>
             {
