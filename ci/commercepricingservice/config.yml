@@ -51,6 +51,7 @@ API:
       SpecificationType: OpenApi # Swagger for <= v2, OpenApi for >= v3
       Products:
         - Commerce
+        - Supply Chain
 Tags:
   Application: commercepricingservice
   cost-center: 1002530100
