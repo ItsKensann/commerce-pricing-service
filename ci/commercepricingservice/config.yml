@@ -50,7 +50,7 @@ API:
       SwaggerPath: swagger/v1/swagger.json
       SpecificationType: OpenApi # Swagger for <= v2, OpenApi for >= v3
       Products:
-        - Supply Chain
+        - Commerce
 Tags:
   Application: commercepricingservice
   cost-center: 1002530100
