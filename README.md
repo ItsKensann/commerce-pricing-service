@@ -1,4 +1,4 @@
-# template-repo
+# Commerce Pricing Service
 Template for creating a new repo
 
 * Put your pipelines [here](./.vsts-ci/example.md)
