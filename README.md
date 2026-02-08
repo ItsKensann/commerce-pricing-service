@@ -1,6 +1,6 @@
 # Commerce Pricing Service API
+⚠️ Disclaimer: This repository is a portfolio showcase of work completed during an internship. The code is provided for demonstration purposes only and is not functional in its current state, as it requires internal API keys, connection strings, and other proprietary configurations that have been removed for security reasons. This project is intended to display the scope and quality of work completed during the internship period.
 
-A RESTful API service created as part of Columbia Sportswear SWE internship that provides real-time pricing information for products across different store locations, enabling customers to make informed purchasing decisions.
 
 ## Overview
 
