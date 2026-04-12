@@ -1,5 +1,5 @@
 # Commerce Pricing Service API
-⚠️ Disclaimer: This repository is a portfolio showcase of work completed during an internship. The code is provided for demonstration purposes only and is not functional in its current state, as it requires internal API keys, connection strings, and other proprietary configurations that have been removed for security reasons. This project is intended to display the scope and quality of work completed during the internship period.
+<b>⚠️ Disclaimer: This repository is a portfolio showcase of work completed during an internship. The code is provided for demonstration purposes only and is not functional in its current state, as it requires internal API keys, connection strings, and other proprietary configurations that have been removed for security reasons. This project is intended to display the scope and quality of work completed during the internship period.</b>
 
 
 ## Overview
